@@ -1,0 +1,49 @@
+/* Сбрасываем базовые настройки */
+* {
+    margin 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: (3,1fr);
+    /* grid-template-rows: repeat(4,500px);  
+    grid-template-rows: repeat(4);*/
+    grid-template-rows: repeat (3)
+}
+
+.card {
+    margin: 1.5em;
+}
+
+/* .card>img   -- будет не верно если картинку обернуть в ещё один тег
+                    т.к. ломается иерархия и соответсвенно ширина картинки
+                    будет другой.*/
+
+.card>a>img {
+    /* width: 300px; лучше сделать в процентах*/  
+    width: 100%
+}
+
+.card.info {
+    text-align: center;
+}
+
+@media (max-width: 1000px) { 
+    .container {
+        grid-template-columns: (2,1fr);
+        grid-template-rows: (5);
+    }
+}
+
+@media (max-width: 600px) { 
+    .container {
+        grid-template-columns: (1,1fr);
+        grid-template-rows: (9);
+    }
+
+    .card {
+        margin-inline: 0;
+    }
+}
